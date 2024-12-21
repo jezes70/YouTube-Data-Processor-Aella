@@ -85,7 +85,7 @@ Fetch video metadata.
 }
 ```
 
-### 2. **GET** `/api/youtube/comments/:videoId`  
+### 2. **GET** `/api/youtube/video-comments/:videoId`  
 Fetch video comments.  
 **Response**:  
 ```json
