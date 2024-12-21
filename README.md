@@ -1,126 +1,117 @@
+Here’s the finalized version of your README file for easy copy-and-paste:
+
+---
+
 # YouTube API Integration Project
 
-This project integrates with the YouTube API to fetch video details and comments based on a provided video ID. It is built using Node.js, Express.js, and EJS for server-side rendering.
+This project integrates with the YouTube API to fetch video details and comments using a provided video ID. Built with **Node.js**, **Express.js**, and **EJS**, it delivers a responsive and user-friendly interface.
 
-### Features
+## Features
 
-- Fetch video metadata (title, description, likes, views).
-- Fetch video comments with pagination.
-- Handles API rate limits with proper error messages.
-- Includes a preloader and user-friendly interface for displaying video data.
+- Fetch video metadata (title, description, likes, views).  
+- Retrieve video comments with pagination.  
+- Handle API rate limits with clear error messages.  
+- Preloader for smooth video data display.
 
-### Prerequisites
+## Prerequisites
 
-1. Node.js installed on your machine.
-2. A valid YouTube Data API key.
+1. **Node.js** installed.  
+2. A valid **YouTube Data API key**.
 
-### Installation
+## Installation
 
-1. Clone the repository:
-
+1. Clone the repository:  
+   ```bash
    git clone <repository-url>
    cd <repository-folder>
-
-2. Install dependencies:
-
+   ```
+2. Install dependencies:  
+   ```bash
    npm install
-
-3. Create a `.env` file in the root folder with the following content:
-
+   ```
+3. Create a `.env` file in the root folder:  
+   ```env
    PORT=3000
    YOUTUBE_API_KEY=your_youtube_api_key
-
-4. Run the application:
-
+   ```
+4. Start the application:  
+   ```bash
    npm start
+   ```
+5. Open your browser at `http://localhost:3000`.
 
-5. Access the application:
-   Open your browser and navigate to `http://localhost:3000`.
+## Usage
 
-### Usage
+1. Enter a YouTube video ID in the form.  
+2. Click **Get Video Info** to fetch video details.  
+3. View metadata and comments.
 
-1. Enter the YouTube video ID in the form.
-2. Click the Get Video Info button to fetch the video's details.
-3. View metadata such as title, description, likes, and comments.
+## File Structure
 
-### File Structure
+```
+src/
+├── app.ts               # Initializes Express app
+├── server.ts            # Starts the server
+├── controllers/
+│   └── youtube.controller.ts  # Handles API requests
+├── services/
+│   └── youtube.service.ts     # Logic for YouTube API
+├── routes/
+│   └── youtube.routes.ts      # Defines routes
+├── utils/
+│   └── logger.ts        # Winston logging
+├── public/              # Static files
+├── views/               # EJS templates
+├── .env                 # Environment variables
+└── package.json         # Dependencies and scripts
+```
 
-├── src/
-│ ├── app.ts # Initializes the Express app
-│ ├── server.ts # Starts the server
-│ ├── controllers/
-│ │ └── youtube.controller.ts # Handles API requests
-│ ├── services/
-│ │ └── youtube.service.ts # Logic for interacting with YouTube API
-│ ├── routes/
-│ │ └── youtube.routes.ts # Defines application routes
-│ ├── utils/
-│ │ └── logger.ts # Configures Winston logging
-│ ├── public/ # Static files (CSS, JS)
-│ ├── views/ # EJS templates
-│ ├── .env # Environment variables
-│ └── package.json # Dependencies and scripts
+## Logging
 
-### Logging
+- Managed using **Winston**.  
+- Logs stored in `error.log` for errors and in the console during development.
 
-- Errors and system messages are logged using `winston`.
-- Logs can be found in `error.log` for error-level logs.
+## API Endpoints
 
-### Contributing
+### 1. **GET** `/api/youtube/video/:videoId`  
+Fetch video metadata.  
+**Response**:  
+```json
+{
+  "title": "string",
+  "description": "string",
+  "viewCount": "number",
+  "likeCount": "number"
+}
+```
 
-Feel free to contribute by forking the repository and submitting a pull request. Make sure to follow the existing code style and structure.
+### 2. **GET** `/api/youtube/comments/:videoId`  
+Fetch video comments.  
+**Response**:  
+```json
+[
+  {
+    "author": "string",
+    "comment": "string",
+    "likeCount": "number"
+  }
+]
+```
 
-## Code Documentation
+## EJS Frontend
 
-### Overview
+The frontend includes:  
 
-The application is structured to maintain modularity and scalability:
+- A form for entering video IDs.  
+- Sections to display metadata and comments.  
+- Preloader spinner for loading transitions.
 
-- Routes: API endpoints (`/api/youtube`).
-- Controllers: Handle request-response logic.
-- Services: Interact with the YouTube Data API.
-- Views: EJS templates for rendering the frontend.
+## Contributing
 
-### Key Components
+1. Fork the repository.  
+2. Create a new branch for your feature or fix.  
+3. Submit a pull request with a detailed description.  
 
-#### 1. youtube.controller.ts
+---
 
-Handles API requests for fetching video details and comments.
-
-- `getVideoDetails`: Fetches video metadata from the YouTube API.
-- `getVideoComments`: Fetches comments, handles pagination.
-
-#### 2. youtube.service.ts
-
-Contains logic for interacting with the YouTube API.
-
-- `getVideoInfo(videoId)`: Fetches video details.
-- `getVideoComments(videoId)`: Fetches comments, handles rate limits.
-
-#### 3. logger.ts
-
-Provides a centralized logging mechanism using Winston.
-
-- Logs are stored in `error.log` for errors.
-- Console transport used for development debugging.
-
-### API Endpoints
-
-1. GET /api/youtube/video/:videoId
-
-   - Fetch details of a video by its ID.
-   - Response: `{ title, description, viewCount, likeCount }`.
-
-2. GET /api/youtube/comments/:videoId
-   - Fetch comments for a video.
-   - Response: `[{ author, comment, likeCount }]`.
-
-### EJS Frontend
-
-The `index.ejs` file renders a simple UI with:
-
-- A form to input YouTube video IDs.
-- Sections for displaying metadata and comments.
-- Spinner for preloading state.
-
-Thanks To Aella For This Great Opportunity
+Thank you, **Aella**, for this wonderful opportunity to create and share this project.
