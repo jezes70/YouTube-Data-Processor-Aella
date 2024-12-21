@@ -73,7 +73,7 @@ src/
 
 ## API Endpoints
 
-### 1. **GET** `/api/youtube/video/:videoId`  
+### 1. **GET** `/api/youtube/video-details/:videoId`  
 Fetch video metadata.  
 **Response**:  
 ```json
