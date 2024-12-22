@@ -1,7 +1,3 @@
-Here’s the finalized version of your README file for easy copy-and-paste:
-
----
-
 # YouTube API Integration Project
 
 This project integrates with the YouTube API to fetch video details and comments using a provided video ID. Built with **Node.js**, **Express.js**, and **EJS**, it delivers a responsive and user-friendly interface.
